@@ -19,4 +19,8 @@ public class PinService {
     public PinItem createPin(PinItem pin) {
         return pinRepo.save(pin);
     }
+
+    public List<PinItem> searchPinsByCategory(String category) {
+        return getAllPins().stream().filter((item) -> item.getCategory().equals(category)).toList();
+    }
 }
